@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Button</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh; /* Make the body height equal to the viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center content */
+            align-items: center; /* Horizontally center content */
+        }
+        #loveText {
+            display: none;
+            font-size: 32px;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+        #teddy {
+            display: none;
+            width: 300px; /* Image size */
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 20px; /* Add spacing below the image */
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loveText"> YES I LOVE YOU! 😍</div>
+    <img id="teddy" src="teddy-bear-image-url.jpg.jpeg" alt="Cute Teddy Bear" />
+    
+    <div id="question">Do you love me? 🥰</div>
+    
+    <div class="btn-container">
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 😢</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const teddy = document.getElementById("teddy");
+        const loveText = document.getElementById("loveText");
+
+        noBtn.addEventListener("mouseover", () => {
+            const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+            const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+            noBtn.style.left = Math.floor(Math.random() * maxX) + "px";
+            noBtn.style.top = Math.floor(Math.random() * maxY) + "px";
+        });
+
+        yesBtn.addEventListener("click", () => {
+            loveText.style.display = "block"; /* Show the love text */
+            teddy.style.display = "block"; /* Show the teddy image */
+        });
+    </script>
+
+</body>
+</html>
